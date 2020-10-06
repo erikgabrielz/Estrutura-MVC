@@ -1,5 +1,5 @@
 <?php
-    class model extends Model{
+    class modell extends Model{
         
     }
 ?>
