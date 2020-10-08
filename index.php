@@ -1,24 +1,18 @@
-<title> Página </title>
 <?php
-    //carrega a classe do facebook
-   require 'fb.php';
-   
-   //verifica se existe a sessão de login
-   if(isset($_SESSION['fb_access_token']) && !empty($_SESSION['fb_access_token'])){
+	session_start();
 
-    //pega os dados do usuário logado, como: email, nome e id
-    $res = $fb->get('/me?fields=email,name,id', $_SESSION['fb_access_token']);
-    //desencoda o json
-    $r = json_decode($res->getBody());
-    //mostra o nome
-    echo "Meu nome: ".$r->name;
+	require_once("config.php");
 
-    //para sair
-    echo '<a href="sair.php" >Sair</a>';
+	spl_autoload_register(function($class){
+		if(strpos($class, "Controller") && file_exists('controllers/'.$class.'.php')){
+			require_once('controllers/'.$class.'.php');
+		}else if(file_exists('models/'.$class.'.php')){
+			require_once('models/'.$class.'.php');
+		}else if(file_exists('system/'.$class.'.php')){
+			require_once('system/'.$class.'.php');
+		}
+	});
 
-   }else{
-        //manda para o login, se não existir sessão
-       header("Location: login.php");
-       
-   }
+	$s = new System();
+	$s->run();
 ?>
