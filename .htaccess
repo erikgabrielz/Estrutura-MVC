@@ -1,4 +1,4 @@
 rewriteEngine On
 rewriteCond %{REQUEST_FILENAME} !-f
-rewriteCond ${REQUEST_FILENAME} !-d
+rewriteCond %{REQUEST_FILENAME} !-d
 rewriteRule ^(.*)$ /index.php/$1 [L]

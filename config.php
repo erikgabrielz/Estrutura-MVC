@@ -1,19 +1,18 @@
 <?php
     define("ENVIRONMENT", "development");
-    define("BASE_TITLE", "Estrutura MVC - ");
 
     global $config;
     $config = array();
 
     if(ENVIRONMENT == 'development'){
-        define("BASE_URL", "http://localhost");
-        $config['dbname'] = '';
+        define("BASE_URL", "https://localhost");
+        $config['dbname'] = 'webservice';
         $config['host'] = 'localhost';
         $config['dbuser'] = 'root';
         $config['dbpass'] = '';
     }else{
-        define("BASE_URL", "http://localhost");
-        $config['dbname'] = '';
+        define("BASE_URL", "https://localhost");
+        $config['dbname'] = 'webservice';
         $config['host'] = 'localhost';
         $config['dbuser'] = 'root';
         $config['dbpass'] = '';

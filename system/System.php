@@ -6,7 +6,7 @@
             
             $params = array();
             
-            if(isset($url) && $url != "/"){
+            if(isset($url) && !empty($url[0])){
                 $url = explode("/", $url);
                 array_shift($url);
                 
