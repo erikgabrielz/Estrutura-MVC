@@ -12,6 +12,6 @@
         }
     });
 
-    $s = new system();
+    $s = new System();
     $s->run();
 ?>
